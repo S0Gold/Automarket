@@ -1,0 +1,27 @@
+[
+  {
+    "Id": 1,
+    "Marca": "BMW",
+    "Model": "Seria 1"
+  },
+  {
+    "Id": 2,
+    "Marca": "BMW",
+    "Model": "Seria 2"
+  },
+  {
+    "Id": 3,
+    "Marca": "BMW",
+    "Model": "Seria 3"
+  },
+  {
+    "Id": 4,
+    "Marca": "BMW",
+    "Model": "Seria 4"
+  },
+  {
+    "Id": 5,
+    "Marca": "BMW",
+    "Model": "Seria 5"
+  }
+]

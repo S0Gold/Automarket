@@ -1,0 +1,108 @@
+<div class="card">
+  <div class="card-img-wrapper">
+    <img
+      *ngIf="!primaryPhoto"
+      class="card-img-top"
+      src="../data/default.png"
+      alt="Car"
+    />
+    <img
+      *ngIf="primaryPhoto"
+      class="card-img-top"
+      src="{{ primaryPhoto }}"
+      alt="Car"
+    />
+    <div *ngIf="!preview" class="member-icons-top">
+      <button
+        *ngIf="favorite; else notFavorite"
+        class="btn btn-secondary favorite"
+        (click)="removeFavorite(announcement.id)"
+      >
+        <i class="fa-solid fa-heart-circle-minus"></i>
+      </button>
+      <ng-template #notFavorite>
+        <button class="btn btn-secondary" (click)="addFavorite(announcement.id)">
+          <i class="fa-solid fa-heart-circle-plus"></i>
+        </button>
+      </ng-template>
+    </div>
+    <ul
+      *ngIf="!preview == true"
+      class="list-inline text-center member-icons animate"
+    >
+      <li class="list-inline-item">
+        <button
+          class="btn btn-primary"
+          routerLink="/detail-announcement/{{ announcement.id }}"
+        >
+          <i class="fa-solid fa-circle-info"></i>
+        </button>
+      </li>
+      <li
+        *ngIf="getDecodedAccessToken('User') == userId"
+        class="list-inline-item"
+        routerLink="/edit-announcement/{{ announcement.id }}"
+      >
+        <button class="btn btn-secondary">
+          <i class="fa-solid fa-pen-to-square"></i>
+        </button>
+      </li>
+      <li 
+        *ngIf="(getDecodedAccessToken('User') == userId || getDecodedAccessToken('Role') == 'Admin')"
+        class="list-inline-item" 
+        (click)="popup(announcement.id)">
+        <button class="btn btn-danger">
+          <i class="fa-solid fa-trash"></i>
+        </button>
+      </li>
+    </ul>
+  </div>
+
+  <div class="card-body p-1 ">
+    <div class="row first-row">
+      <div class="col-8 ">
+      {{announcement.brand}}  {{announcement.model}}  - {{announcement.body}}
+      </div>
+      <div *ngIf="!preview == true && priceEstimation" class="col-4 mt-1">
+        <app-priceBar [input]="priceEstimation"></app-priceBar>
+      </div>
+    </div>
+    <div class="row second-row">
+      <div class="col-4">
+        <i class="fa-solid fa-circle fa-2xs"></i>
+        {{announcement.year}}
+      </div>
+      <div class="col-4">
+        <i class="fa-solid fa-circle fa-2xs"></i>
+        {{announcement.fuel}}
+      </div>
+      <div class="col-4">
+        <i class="fa-solid fa-circle fa-2xs"></i> {{announcement.cilindricalCapacity}} cm3</div>
+      
+    </div>
+    <div class="row second-row">
+      <div class="col-4">
+        <i class="fa-solid fa-circle fa-2xs"></i>
+        {{announcement.km}} km
+      </div>
+      <div class="col-4">
+        <i class="fa-solid fa-circle fa-2xs"></i>
+        {{announcement.pollution}} 
+      </div>
+      <div class="col-4">
+        <i class="fa-solid fa-circle fa-2xs"></i>
+        {{announcement.color}} 
+      </div>  
+    </div>
+    <div class="row">
+      <div class="col-5 price">
+        {{announcement.price}} €
+      </div>
+      <div class="col-6 county d-flex justify-content-center">
+        {{announcement.county}}
+      </div>    
+    </div>
+  </div>
+</div>
+
+

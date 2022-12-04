@@ -1,0 +1,9 @@
+th , td {
+    text-align: center ;
+    vertical-align: center;
+    margin-top: 50px !important;
+}
+
+.btn-primary {
+    margin-top:0 !important;
+}

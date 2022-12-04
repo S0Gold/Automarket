@@ -1,0 +1,33 @@
+
+<div class="container">
+  <div class="row border border-dark border-1 ">
+    <div class="col-2">
+        <app-announcement-search (announcementsChange) = "process($event)"></app-announcement-search>  
+    </div>
+    <div class="col-10">
+      <div class="row mb-2">
+        <div class="col-2 mt-3 ms-3">
+          <select [(ngModel)] ='sortByParam'>
+            <option value ="" disabled selected>Sortează</option>
+            <option value = 'price'>Preț crescător</option>
+            <option value = 'Descprice'>Preț descrescător</option>
+            <option value = 'brand'>Marcă</option>
+            <option value = 'model'>Model</option>
+            <option value = 'body'>Caroserie</option>
+            <option value = 'year'>An</option>
+          </select>
+        </div>
+      </div>
+      <div *ngIf="properties.length >= 1; else notFound" class="row">
+        <div *ngFor="let item of properties |Sort:[sortByParam, sortDirection]" class="shadow-lg col-sm-4 p-3">
+          <app-announcement-card [announcement]="item" [favorite]="isFavorite(item.id)"></app-announcement-card>
+        </div>
+      </div>
+      <ng-template #notFound>
+        <p style="color:red; font-weight: bold ; font-size: large;">
+          Niciun anunț nu a fost gasit.
+        </p>
+      </ng-template>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+.tab{
+    color: black !important;
+    text-decoration-color: black;
+    background-color: black !important;
+}
+.container{
+    margin-top: 100px !important;
+}
+.container > .row {
+    margin-right: -70px !important;
+    margin-left: -70px !important;
+  }

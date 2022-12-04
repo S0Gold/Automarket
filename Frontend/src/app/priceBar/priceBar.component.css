@@ -1,0 +1,20 @@
+.good-price{
+    background-color: rgb(15, 132, 15);
+}
+.fair-price{
+    background-color: rgb(247, 235, 5);
+}
+.bad-price{
+    background-color: rgb(237, 29, 26);
+}
+
+.box {
+    float: left;
+    height: 10px;
+    width: 25px;
+    margin-bottom: 5px;
+    border: 2px solid black;
+    clear: both;
+    margin-right: 2px;
+  }
+  

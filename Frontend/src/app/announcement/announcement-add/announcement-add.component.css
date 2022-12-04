@@ -1,0 +1,47 @@
+.photo-control{
+  min-height:  300px;
+  vertical-align: middle;
+  text-align: center;
+  border: 1px dashed blue;
+  margin: 5px;
+}
+
+.card-border{
+  margin-left: 5%;
+  margin-right: 5%;
+  height: 350px;
+  width: auto;
+}
+.file-border{
+  margin-left: 10%;
+  height: 150px;
+  width:  150px;
+}
+.member-icons-top-right{
+  position: absolute;
+  top: 0%;
+  left: 90%
+}
+
+.member-icons-top-left{
+  position: absolute;
+  top: -8%;
+  left: 0%
+}
+
+.input-border{
+  position: relative;
+  width: 150px;
+  height: 150px;
+  border: solid black 1px;
+  border-radius: 3%;
+  margin-left: 35%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+.input-border > button{
+  margin-left: 33%;
+  margin-top: 30% !important;
+  background-color:rgb(121, 122, 124) !important;
+}

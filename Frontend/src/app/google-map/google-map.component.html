@@ -1,0 +1,5 @@
+<p-toast [style]="{marginTop: '80px'}"></p-toast>
+<p-gmap #gmap [style]="{'width':'auto','height':'350px', 'margin-bottom': '1em'}" [options]="options"
+    [overlays]="overlays" (onMapClick)="handleMapClick($event)" (onOverlayClick)="handleOverlayClick($event)"
+    (onOverlayDragEnd)="handleDragEnd($event)"></p-gmap>
+

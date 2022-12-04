@@ -1,0 +1,93 @@
+<div class=" row shadow position">
+  <div class="col-sm-4 p-0  ">
+    <div class="card ">
+      <div class="card-img-wrapper">
+        <img *ngIf="primaryPhoto" class="card-img-top" src="{{primaryPhoto}}" alt="nam">
+        <img *ngIf="!primaryPhoto" class="card-img-top" src="../data/default.png" alt="nam">
+      </div>
+      <div class="card-body">
+        <div class="d-flex justify-content-center">
+          <icon [icon]="'fa-solid fa-eye'" [text] = "numberOfViews.toString()"></icon>
+        </div>
+        <hr>
+        <div>
+            <strong>{{announcement.brand}} {{announcement.model}}, {{announcement.body }}</strong>
+        </div>
+        <hr>
+        <div>
+            <strong>{{announcement.km}} Km </strong>
+        </div>
+        <div>
+            <strong>{{announcement.fuel}} </strong>
+        </div>
+        <div>
+            <strong>{{announcement.color}} </strong>           
+        </div>
+        <div>
+          <strong>VIN: </strong>
+          <strong *ngIf="announcement.vin"> {{announcement.vin}}</strong>
+          <strong *ngIf="!announcement.vin"> -</strong>
+        </div>
+        <h1 class="card-title ms-xl-5">{{announcement.price}}$</h1>
+        <div>
+          Anunț actualizat in:
+          {{announcement.registrationDate.toString().replace('-', '/').split('T')[0].replace('-', '/')}}           
+      </div>
+      </div>
+      <div class="card-footer">
+        <div class="btn-group d-flex">
+          <button class="btn btn-primary" (click)="contact()">Contactează proprietarul</button>
+        </div>
+      </div>
+  </div>
+  </div>
+  <div class="col-sm-8 p-0">
+    <div class="tab-panel p-3">
+      <tabset  #formTabs class="member-tabset">
+        <tab heading="Prezentare generală">
+          <div class="row m-1">
+            <div class="card col-sm-12">
+                <div class="heading" style="white-space: pre-wrap">
+                    <strong>Despre:</strong>
+                    <p>{{announcement.description}}</p>
+                </div>
+            </div>
+          </div>
+          <div class="col-sm-12">
+            <div class="mt-2">
+              <app-google-map [announcement]="announcement" [modify] ="false"></app-google-map>
+            </div>
+          </div>
+        </tab>
+        <tab heading="Opțiuni">
+          <div class="col-sm-12">
+            <div class="row mt-3">
+              <div *ngFor="let item of announcement.options" class="col-3">
+                <icon [icon]="'fa-solid fa-circle-check'" [text] = "item" color="green"></icon>
+              </div>
+            </div>
+        </div>
+
+        </tab>
+        <tab heading="Poze" class="ml-10">
+          <ngx-gallery [options]="galleryOptions" [images]="galleryImages" class="ngx-gallery"></ngx-gallery>
+        </tab>
+        <tab *ngIf="show" heading="Contact">
+          <div class="mt-5" style="font-size: 18px;" >
+            <img  class="mt-5 mx-auto d-block" src="../data/avatar.jpg" alt="Avatar" routerLink="/user/details/{{userId}}">
+            <div class="d-flex justify-content-center">
+              {{user.firstName}}
+            </div>
+            <div class="d-flex justify-content-center">
+              Inregistrat din: {{user.registrationDate.toString().replace('-', '/').split('T')[0].replace('-', '/')}}
+            </div>
+            <div class="d-flex justify-content-center">
+              <icon [icon]="'fa-solid fa-phone'" text="{{user.phoneNumber}}" color ="green" textClass = "fw-bolder"></icon>
+            </div>           
+          </div>
+        </tab>
+      </tabset>
+
+    </div>
+  </div>
+</div>

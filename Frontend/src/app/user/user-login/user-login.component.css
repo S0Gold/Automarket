@@ -1,0 +1,12 @@
+.link {
+  float: left;
+  color : black;
+  text-decoration : underline ;
+  text-decoration-color: black;
+}
+
+.link:hover {
+  color : blue;
+  text-decoration-color: blue;
+  text-size-adjust: 2px;
+}

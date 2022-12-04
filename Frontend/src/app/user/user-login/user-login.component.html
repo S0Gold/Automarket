@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="col-4 m-auto">
+    <div class="card m-auto">
+      <div class="card-header">
+        Autentificare
+      </div>
+      <div class="card-body">
+
+        <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+          <div class="form-group col-12">
+              <label for="name" class="form-label">Adresă de email</label>
+              <input type="text" class="form-control" formControlName="email" >
+              <span *ngIf="!emailAddress.valid && (emailAddress.touched || submited)" class="error-block">
+                Te rugăm să completezi acest camp.
+              </span>
+          </div>
+
+          <div class="form-group col-12">
+            <label for="name" class="form-label">Parolă</label>
+            <input type="password" class="form-control"  formControlName="password">
+            <span *ngIf="!password.valid && (password.touched || submited)" class="error-block">
+              Te rugăm să completezi acest camp.
+            </span>
+          </div>
+
+        <div class="form-group col-12 mt-2 d-flex " >
+          <button [disabled]="!loginForm.valid" type="submit" class="btn btn-success  col-4">Autentificare</button>
+        </div>
+        <div class="form-group col-12 d-flex mt-2" >
+          <div class="">Incă nu ai cont? </div>
+          <div class="link mx-1" routerLink="../register"> Inregistrează-te</div>
+        </div>
+        <div class="form-group col-12 d-flex mt-2" >
+          <div class="">Ai uitat parola? </div>
+          <div class="link mx-1" routerLink="../forgotpassword"> Recuperează parola</div>
+        </div>
+
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+
+.card-size{
+    height: 100px;
+}
+
+.favorite{
+    color: red;
+    border-color: blue;
+    border-width: 1px;
+}

@@ -1,0 +1,92 @@
+<div class="card-body center">
+  <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+    <div class="tab-panel">
+      <select
+        class="form-control mb-1"
+        #brandList
+        formControlName="brand"
+        [(ngModel)]="dataModel.Brand"
+        (change)="listChange('model')"
+      >
+        <option value="" disabled selected>Selectează marca:</option>
+        <option *ngFor="let item of carBrands" value="{{ item }}">
+          {{ item }}
+        </option>
+      </select>
+
+      <select
+        class="form-control mb-1"
+        #modelList
+        formControlName="model"
+        [(ngModel)]="dataModel.Model"
+        (change)="listChange('body')"
+      >
+        <option value="" selected disabled>Selectează modelul:</option>
+        <option *ngFor="let item of carModels" value="{{ item }}">
+          {{ item }}
+        </option>
+      </select>
+
+      <select
+        class="form-control mb-1"
+        #bodyList
+        formControlName="body"
+        [(ngModel)]="dataModel.Body"
+        (change)="listChange('year')"
+      >
+        <option value="" disabled selected>Selectează caroseria:</option>
+        <option *ngFor="let item of carCategory" value="{{ item }}">
+          {{ item }}
+        </option>
+      </select>
+
+      <select
+        class="form-control mb-1"
+        formControlName="year"
+        [(ngModel)]="dataModel.Year"
+      >
+        <option value="0" disabled selected>Selectează anul:</option>
+        <option *ngFor="let item of carYears" value="{{ item }}">
+          {{ item }}
+        </option>
+      </select>
+
+      <select
+        class="form-control mb-1"
+        formControlName="fuel"
+        [(ngModel)]="dataModel.Fuel"
+      >
+        <option value="" disabled selected>Selectează combustibilul:</option>
+        <option *ngFor="let item of carFuels" value="{{ item }}">
+          {{ item }}
+        </option>
+      </select>
+
+      <select
+        class="form-control mb-1"
+        #countyList
+        formControlName="county"
+        [(ngModel)]="dataModel.County"
+      >
+        <option value="" disabled selected>Selectează județul</option>
+        <option *ngFor="let item of counties" value="{{ item }}">
+          {{ item }}
+        </option>
+      </select>
+      <label class="mt-1 mb-2 ms-2">Preț cuprins între:</label>
+      <npn-slider
+        class="my-slider"
+        [min]="0"
+        [max]="30000"
+        (onChange)="onSliderChange($event)"
+      ></npn-slider>
+
+      <button
+        type="submit"
+        class="btn btn-primary center"
+      >
+        Caută
+      </button>
+    </div>
+  </form>
+</div>

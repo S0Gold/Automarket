@@ -1,0 +1,85 @@
+<div class="container">
+  <div class="row">
+    <div class="card-body">
+
+      <div class="form-group mt-1 col-5">
+        <select class="form-control"
+                #brandList
+                (change)="SelectedBrand(brandList.value)" >
+          <option value="" disabled selected>Selectează marcile favorite:</option>
+          <option *ngFor="let item of carBrands" value="{{item}}">{{item}}</option>
+        </select>
+      </div>
+      <div class="row mt-3 ms-2">
+        <div *ngFor="let item of preferences.Brands" class="col-2 item-style d-flex me-1">
+          <icon [icon]="'fa-solid fa-circle-xmark'" [text] = "item" (click)="removeItem(item)"></icon>
+        </div>
+      </div>
+     
+
+      <div class="form-group mt-1 col-5">
+        <select class="form-control"
+                #modelList
+                (change)="SelectedModel(modelList.value)" >
+          <option value="" disabled selected>Selectează modelele favortie:</option>
+          <option *ngFor="let item of carModels" value="{{item}}">{{item}}</option>
+        </select>
+      </div>
+      <div class="row mt-3 ms-2">
+        <div *ngFor="let item of preferences.Models" class="col-2 item-style d-flex me-1">
+          <icon [icon]="'fa-solid fa-circle-xmark'" [text] = "item" (click)="removeItem(item)"></icon>
+        </div>
+      </div>
+
+
+      <div class="form-group mt-1 col-5">
+        <select class="form-control"
+                #bodiesList
+                (change)="SelectedBody(bodiesList.value)" >
+          <option value="" disabled selected>Selectează caroseriile favorite:</option>
+          <option *ngFor="let item of carCategory" value="{{item}}">{{item}}</option>
+        </select>
+      </div>
+      <div class="row mt-3 ms-2">
+        <div *ngFor="let item of preferences.Bodies" class="col-2 item-style d-flex me-1">
+          <icon [icon]="'fa-solid fa-circle-xmark'" [text] = "item" (click)="removeItem(item)"></icon>
+        </div>
+      </div>
+
+
+      <div class="form-group mt-1 col-5">
+        <select class="form-control"
+                #yearsList
+                (change)="SelectedYear(yearsList.value)" >
+          <option value="" disabled selected>Selectează anii de fabricație favoriți:</option>
+          <option *ngFor="let item of carYears" value="{{item}}">{{item}}</option>
+        </select>
+      </div>
+      <div class="row mt-3 ms-2">
+        <div *ngFor="let item of preferences.Years" class="col-2 item-style d-flex me-1">
+          <icon [icon]="'fa-solid fa-circle-xmark'" [text] = "item.toString()" (click)="removeItem(item.toString())"></icon>
+        </div>
+      </div>
+
+
+      <div class="form-group mt-1 col-5">
+        <select class="form-control"
+                #countyList
+                (change)="SelectedCounty(countyList.value)" >
+          <option value="" disabled selected>Selectează județele favorite:</option>
+          <option *ngFor="let item of counties" value="{{item}}">{{item}}</option>
+        </select>
+      </div>
+      <div class="row mt-3 ms-2">
+        <div *ngFor="let item of preferences.Counties" class="col-2 item-style d-flex me-1">
+          <icon [icon]="'fa-solid fa-circle-xmark'" [text] = "item" (click)="removeItem(item)"></icon>
+        </div>
+      </div>
+
+      <div class="mt-3 col-3 ms-2">
+        <button class="btn btn-primary" (click)="onClick()" >Salvează modificările</button>
+      </div>
+      
+    </div>
+  </div>
+</div>

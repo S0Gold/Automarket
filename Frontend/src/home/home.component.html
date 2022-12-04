@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row">
+    <tabset #formTabs class="member-tabset" (tabChange)="changeTab($event)">
+      <tab heading="Despre" (selectTab)="changeTab(1)">
+        <div class="row">
+          <div class="col-5">
+            <div class="decoration">
+              AutoMarket este o nouă platformă menită să faciliteze comerțul de 
+              autovehicule pe piata internă. Comunitatea este in continua crestere si tu poti fi urmatorul membru.
+              Înregistrează-te si benificiezi de toate funcționalitățile oferite de platforma.
+            </div>
+            <a *ngIf="!logged()" class="myButton mt-3" routerLink="/user/register" >
+              Vreau să devin membru <i class="fa-solid fa-arrow-right ms-2"></i>
+            </a>
+            <button (click)="getOlx()">OLX</button>
+          </div>
+          <div class="col-7 mt-lg-1">
+            <div class="card-img-wrapper">
+              <img class="card-img-top" src="../data/default.png" alt="Car" />
+            </div>
+          </div>
+        </div>
+      </tab>
+      <tab
+        *ngIf="logged()"
+        heading="Anunțuri recomandate"
+        (selectTab)="changeTab(2)"
+      >
+        <div class="card">
+          <app-announcement-recomandation></app-announcement-recomandation>
+        </div>
+      </tab>
+      <tab heading="Cele mai noi anunțuri" (selectTab)="changeTab(3)">
+        <div class="card">
+          <app-announcement-newest></app-announcement-newest>
+        </div>
+      </tab>
+      <tab heading="Cele mai vizualizate anunțuri" (selectTab)="changeTab(4)">
+        <div class="card">
+          <app-announcement-most-viewed></app-announcement-most-viewed>
+        </div>
+      </tab>
+    </tabset>
+  </div>
+</div>

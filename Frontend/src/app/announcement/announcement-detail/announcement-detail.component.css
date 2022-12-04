@@ -1,0 +1,48 @@
+
+.row > .card {
+  min-height: 200px !important;
+  margin-right: 100px !important;
+}
+
+.card img {
+  padding: 10px;
+  height: 250px;
+}
+
+.card-img-wrapper {
+  height: 250px;
+}
+
+.ngx-gallery
+{
+  display: inline-block;
+  margin-bottom: 20px;
+}
+.tab{
+  padding-left: 200px;
+  padding-top: 25px;
+}
+.position{
+  margin-top: 8% ;
+}
+
+h1{
+  color:red
+}
+
+strong{
+  font-size: 18px;
+}
+tab > div > img{
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+}
+
+tab > div > img:hover{
+  transform: scale(1.1,1.1) ;
+  transition-duration: 500ms;
+  transition-timing-function: ease-out;
+  opacity: .8;
+  background-color: rgb(255, 255, 255); 
+}

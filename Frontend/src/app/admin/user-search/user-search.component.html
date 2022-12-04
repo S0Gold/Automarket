@@ -1,0 +1,34 @@
+<div class="card-body center border">
+  <div class="form-group">
+    <label>Nume</label>
+    <input type="text" class="form-control" [(ngModel)]="dataModel.LastName" />
+  </div>
+  <div class="form-group">
+    <label>Prenume</label>
+    <input type="text" class="form-control" [(ngModel)]="dataModel.FirstName" />
+  </div>
+  <div class="form-group">
+    <label>Email</label>
+    <input
+      type="text"
+      class="form-control"
+      [(ngModel)]="dataModel.EmailAddress"
+    />
+  </div>
+
+  <div class="form-group">
+    <label>Telefon</label>
+    <input
+      type="text"
+      class="form-control"
+      [(ngModel)]="dataModel.PhoneNumber"
+    />
+  </div>
+
+  <button
+    (click)="onSubmit()"
+    class="btn btn-primary"
+  >
+    Cauta
+  </button>
+</div>

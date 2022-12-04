@@ -1,0 +1,75 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/">AutoMarket</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+        <li class="nav-item">
+          <a class="nav-link "  [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active" aria-current="page" routerLink="/">Acasa</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active" routerLink="/announcements">Anunțuri</a>
+        </li>
+        <li *ngIf="loggedin()" class="nav-item">
+          <a class="nav-link " routerLinkActive="active" routerLink="/add-announcement">Adauga</a>
+        </li>
+      </ul>
+      <div *ngIf="!loggedin()" >
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+        <li  class="nav navbar-item right">
+          <a class="nav-link " routerLinkActive="active" routerLink="/user/login">Autentificare</a>
+        </li>
+        <li  class="nav navbar-item right">
+          <a class="nav-link" routerLinkActive="active" routerLink="/user/register">Înregistrare</a>
+        </li>
+      </ul>
+      </div>
+      <div *ngIf="loggedin()" class="btn-group" dropdown>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+          <li  class="nav-item">
+            <a class="nav-link " routerLinkActive="active"  routerLink="/user/profile/3">Favorite</a>
+          </li>
+          <li  class="nav-item">
+            <a class="nav-link " routerLinkActive="active" routerLink="/user/profile/2">Anunțurile mele</a>
+          </li>
+        </ul>
+      </div>
+      <div *ngIf="loggedin()" class="btn-group me-5" dropdown>
+        <div id="button-menu-dividers" dropdownToggle class="mx-1 dropdown-toggle text-light"aria-controls="dropdown-menu-dividers">
+          Salut {{loggedinUser}}
+        </div>
+        <ul id="dropdown-menu-dividers" *dropdownMenu class="dropdown-menu "
+            role="menu" aria-labelledby="button-menu-dividers">
+          <li 
+            *ngIf="getDecodedAccessToken('Role') == 'Admin'"
+            role="menuitem" 
+          >
+            <a href="#" class="dropdown-item" routerLink="/admin/users">
+              <i class=" mt-1"></i>
+              <icon [icon]="'fas fa-tachometer-alt'" [text] = "'Pagina administrativă'" ></icon>
+            </a>
+          </li>
+          <li role="menuitem">
+            <a href="#" class="dropdown-item" routerLink="/user/profile/1">
+              <icon [icon]="'fa-solid fa-user'" [text] = "'Profilul meu'" ></icon>
+            </a>
+          </li>
+          <li role="menuitem">
+            <a href="#" class="dropdown-item" routerLink="/user/changepassword">
+              <icon [icon]="'fa-solid fa-key'" [text] = "'Schimbă parola'" ></icon>
+            </a>
+          </li>
+          <li class="divider dropdown-divider"></li>
+          <li role="menuitem">
+            <a href="#" class="dropdown-item " (click)="onLogout()">
+              <icon [icon]="'fa-solid fa-arrow-right-from-bracket'" [text] = "'Deconectare'" ></icon>
+            </a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>

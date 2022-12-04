@@ -1,0 +1,289 @@
+<div class="row mb-5">
+
+<div class="col-8 shadow-lg p-0 bg-white">
+  <div class="card">
+    <div class="card-header center">
+     <h3>Adaugă un anunț</h3>
+    </div>
+    <div class="card-body center">
+      <form [formGroup]="addForm"  (ngSubmit)="onSubmit()" >
+        <div class="tab-panel">
+          <tabset #formTabs class="member-tabset">
+
+            <tab heading="Informații generale" >
+              <div class="row mt-2 mx-2 ">
+                <div class="col-sm-6">
+                  <div class="form-group mt-1">
+                    <label for="sel1">Marca</label>
+                    <select class="form-control"
+                            #brandList
+                            formControlName="brand"
+                            [(ngModel)]="announcementView.brand"
+                            (change)="onSelectedBrand(brandList.value)" >
+                      <option value="" disabled selected>Selectează marca:</option>
+                      <option *ngFor="let item of carBrands" value="{{item}}">{{item}}</option>
+                    </select>
+                    <span *ngIf="!brand.valid && (brand.touched || submited)" class="error-block">
+                      Te rugăm să completezi acest câmp.
+                    </span>
+                  </div>
+
+                  <div class="form-group mt-1">
+                    <label for="sel1">Model</label>
+                    <select class="form-control"
+                            #modelList
+                            formControlName="model"
+                            [(ngModel)]="announcementView.model"
+                            (change)="onSelectedModel(modelList.value)">
+                      <option value="" selected disabled>Selectează modelul:</option>
+                      <option *ngFor="let item of carModels" value="{{item}}">{{item}}</option>
+                    </select>
+                    <span *ngIf="!model.valid && (model.touched || submited)" class="error-block">
+                      Te rugăm să completezi acest câmp.
+                    </span>
+                  </div>
+
+                  <div class="form-group mt-1">
+                    <label for="sel1">Caroserie</label>
+                    <select class="form-control"
+                            #bodyList
+                            formControlName="body"
+                            [(ngModel)]="announcementView.body"
+                            (change)="onSelectedBody(bodyList.value)">
+                      <option value="" disabled selected >Selectează caroseria:</option>
+                      <option *ngFor="let item of carCategory" value="{{item}}">{{item}}</option>
+                    </select>
+                    <span *ngIf="!body.valid && (body.touched || submited)" class="error-block">
+                      Te rugăm să completezi acest câmp.
+                    </span>
+                  </div>
+
+                  <div class="form-group mt-1">
+                    <label for="sel1">An</label>
+                    <select class="form-control"
+                          formControlName="year"
+                          [(ngModel)]="announcementView.year">
+                      <option value="0" disabled selected>Selectează anul:</option>
+                      <option *ngFor="let item of carYears" value="{{item}}">{{item}}</option>
+                    </select>
+                    <span *ngIf="!year.valid && (year.touched || submited)" class="error-block">
+                      Te rugăm să completezi acest câmp.
+                    </span>
+                  </div>
+
+                  <div class="form-group mt-1">
+                    <label>Combustibil</label>
+                    <select class="form-control"
+                        formControlName="fuel"
+                        [(ngModel)]="announcementView.fuel">
+                      <option value="" disabled selected>Selectează combustibilul:</option>
+                      <option *ngFor="let item of carFuels" value="{{item}}">{{item}}</option>
+                    </select>
+                    <span *ngIf="!fuel.valid && (fuel.touched || submited)" class="error-block">
+                      Te rugăm să completezi acest câmp.
+                    </span>
+                  </div>
+
+                </div>
+                <div class="col-sm-6 mt-1 ">
+                  <div class="form-group">
+                    <label>Km</label>
+                    <input type="text" class="form-control"
+                          formControlName="km"
+                          [(ngModel)]="announcementView.km">
+                    <span *ngIf="!km.valid && (km.touched || submited)" class="error-block">
+                      Te rugăm să completezi acest câmp.
+                    </span>
+                  </div>
+                  <div class="form-group mt-1">
+                    <label>CP</label>
+                    <input type="text" class="form-control"
+                          formControlName="hp"
+                          [(ngModel)]="announcementView.hp">
+                    <span *ngIf="!hp.valid && (hp.touched || submited)" class="error-block">
+                      Te rugăm să completezi acest câmp.
+                    </span>
+                  </div>
+                  <div class="form-group mt-1">
+                    <label>Capacitate cilindrică</label>
+                    <input type="text" class="form-control"
+                          formControlName="cilindricalCapacity"
+                          [(ngModel)]="announcementView.cilindricalCapacity">
+                    <span *ngIf="!cilindricalCapacity.valid && (cilindricalCapacity.touched || submited)" class="error-block">
+                      Te rugăm să completezi acest câmp.
+                    </span>
+                  </div>
+                  <div class="form-group mt-1">
+                    <label>Culoare</label>
+                       <select class="form-control"
+                          formControlName="color"
+                          [(ngModel)]="announcementView.color">
+                      <option value="" disabled selected>Selectează culoarea:</option>
+                      <option *ngFor="let item of carColors" value="{{item}}">{{item}}</option>
+                    </select>
+                    <span *ngIf="!color.valid && (color.touched || submited)" class="error-block">
+                      Te rugăm să completezi acest câmp.
+                    </span>
+                  </div>
+
+                  <div class="form-group mt-1">
+                    <label>Norma de poluare</label>
+                     <select class="form-control"
+                        formControlName="pollution"
+                        [(ngModel)]="announcementView.pollution">
+                      <option value="" disabled selected>Selectează norma de poluare:</option>
+                      <option *ngFor="let item of carPollution" value="{{item}}">{{item}}</option>
+                    </select>
+                    <span *ngIf="!pollution.valid && (pollution.touched || submited)" class="error-block">
+                      Te rugăm să completezi acest câmp.
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row ms-3 me-3">
+                <label>VIN</label>
+                <input type="text" class="form-control"
+                      formControlName="vin"
+                      [(ngModel)]="announcementView.vin">
+                <span *ngIf="!vin.valid && (vin.touched || submited)" class="error-block">
+                  <span *ngIf="vin.hasError('required')" class="error-block">Te rugăm să completezi acest câmp.</span>
+                  <span *ngIf="vin.hasError('minlength') || vin.hasError('maxlength')" class="error-block">Te rugăm să setezi un VIN valid.</span>
+                </span>
+              </div>
+
+              <div class="form-group m-2">
+                <button type="button" class="btn btn-primary btn-block" (click)="selectTab(1)">Next</button>
+              </div>
+
+            </tab>
+
+            <tab heading="Descriere si locație"> 
+
+              <div class="form-group mt-3">
+                <label class="mb-1 ">Descrierea anunțului</label>
+                <textarea class="form-control" rows="10" formControlName="description"></textarea>
+                <span *ngIf="!description.valid && (description.touched || submited)" class="error-block">
+                  <span *ngIf="description.hasError('required')" class="error-block">Te rugăm să completezi acest câmp.</span>
+                  <span *ngIf="description.hasError('minlength')" class="error-block">Te rugăm sa setezi o descriere de minim 50 de caractere.</span>
+                </span>
+              </div>
+
+              <div class="form-group mt-1">
+                <label>Județ</label>
+                <select class="form-control"
+                        #countyList
+                        formControlName="county"
+                        [(ngModel)]="announcementView.county">
+                  <option value="" disabled selected>Selectează județul:</option>
+                  <option *ngFor="let item of counties" value="{{item}}">{{item}}</option>
+                </select>
+                <span *ngIf="!county.valid && (county.touched || submited)" class="error-block">
+                  Te rugăm să completezi acest câmp.
+                </span>
+              </div>
+
+              <div *ngIf="announcementView.county" class="form-group mt-5">
+                <app-google-map [announcement]="announcementView"></app-google-map>
+                <span *ngIf="announcementView.latitude == 0 || announcementView.longitude == 0 && submited" class="error-block">
+                  Te rugăm să completezi acest câmp.
+                </span>
+            </div>
+
+              <div class="form-group col-6 ">
+                <button type="button" class="btn btn-primary btn-block" (click)="selectTab(0)">Înapoi</button>
+                <button type="button" class="btn btn-primary btn-block" (click)="selectTab(2)">Înainte</button>
+              </div>
+
+            </tab>
+
+            <tab heading="Preț si opțiuni" class="m-lg-4">
+
+              <div class="form-group col-12">
+                <label>Preț</label>
+                <input type="text"
+                      class="form-control"
+                      formControlName="price"
+                      [(ngModel)]="announcementView.price">
+                <span *ngIf="!price.valid && (price.touched || submited)" class="error-block">
+                  Te rugăm să completezi acest câmp.
+                </span>
+              </div>
+
+              <div class="card mt-3">
+                <div class="row mx-2 ">
+                  <div *ngFor="let item of options" class="col-sm-4" >
+                    <div class="form-check mt-1">
+                      <input class="form-check-input" type="checkbox" (change) = "onCheck(item)">
+                      <label class="form-check-label" >
+                        {{item}}
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group col-6 mt-2">
+                <button type="button" class="btn btn-primary btn-block" (click)="selectTab(1)">Înapoi</button>
+                <button type="button" class="btn btn-primary btn-block" (click)="selectTab(3)">Înainte</button>
+              </div>
+            </tab>
+
+            <tab heading="Poze">
+              <div class="input-border">
+                <input formControlName="file"
+                          hidden
+                          #fileInput
+                          type="file"
+                          class="form-control"
+                          multiple=""
+                          (change)="onFileChange($event)">
+                <button class="btn btn-primary btn-lg"
+                  type="button"
+                  (click)="fileInput.click()">
+                  <i class="fa-solid fa-plus"></i>
+                </button>                             
+                <div *ngIf="file.touched && file.invalid" class="alert alert-danger">
+                  <div *ngIf="file.hasError('required')">Te rugăm să completezi acest câmp.</div>
+                </div>
+              </div>
+
+              <div class="row border border-1">
+                <div *ngFor='let url of images' class="col-3">
+                  <div class="card ">
+                    <div class="card-img-wrapper">
+                      <img [src]="url" height="150" width="200px"> 
+                      <div class="member-icons-top-right">
+                        <button type="button" class="btn btn-danger btn-sm" (click)="removePhoto(url)">
+                          <i class="fa-solid fa-circle-minus"></i>
+                        </button>
+                      </div>
+                      <div *ngIf="(primaryPhoto != url)" class="member-icons-top-left">
+                        <button type="button" class="btn btn-primary btn-sm" (click)="makePrimaryPhoto(url)">
+                          <i class="fa-solid fa-eye"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>   
+              </div>
+              <button type="button" class="btn btn-primary btn-block" (click)="selectTab(3)">Înapoi</button>
+              <button type="submit"[disabled]="!addForm.valid" class="btn btn-primary ">Adauga anuntul</button>
+            </tab>
+
+          </tabset>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="col-4">
+  <div class="card-header">
+    <h3>Previzualizarea anunțului</h3>
+   </div>
+   <div class="shadow-lg p-3 bg-white">
+     <app-announcement-card [announcement]="announcementView" [preview]="true"></app-announcement-card>
+   </div>
+</div>
+
+

@@ -1,0 +1,7 @@
+.row{
+  background-color: #ffffff ;
+}
+.container > .row {
+  margin-right: -100px !important;
+  margin-left: -100px !important;
+}

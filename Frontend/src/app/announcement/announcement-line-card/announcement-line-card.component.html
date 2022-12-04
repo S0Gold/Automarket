@@ -1,0 +1,57 @@
+<div class="container mt-2">
+  <div class="row card-size m-1" >
+    <div class="col-2 d-flex justify-content-center" routerLink="/detail-announcement/{{ announcement.id }}">
+      <div class="small mt-2 mb-2">
+        <img
+          *ngIf="!primaryPhoto"
+          class="card-img-top"
+          src="../data/default.png"
+          alt="Car"
+        />
+        <img
+          *ngIf="primaryPhoto"
+          class="card-img-top"
+          src="{{ primaryPhoto }}"
+          alt="Car"
+        />
+      </div>
+    </div>
+    <div class="col-8 mt-1" routerLink="/detail-announcement/{{ announcement.id }}">
+      <div class="card-text-1">{{ announcement.price }}$</div>
+      <div class="card-text-2">
+        {{ announcement.brand }} {{ announcement.model }}
+        {{ announcement.body }} {{ announcement.year }} {{ announcement.fuel }}
+      </div>
+      <div class="card-text-3">{{ announcement.km }} Km</div>
+    </div>
+    <div class="col-2 mt-3">
+      <div class="d-flex justify-content-end">
+        <button
+          *ngIf="favorite"
+          class="btn btn-secondary favorite"
+          (click)="removeFavorite(announcement.id)"
+        >
+          <i class="fa-solid fa-heart-circle-minus"></i>
+        </button>
+        <div *ngIf="getDecodedAccessToken('User') == userId || getDecodedAccessToken('Role') == 'Admin'" >
+          <button
+            *ngIf="!favorite"
+            class="btn btn-primary me-2"
+            routerLink="/edit-announcement/{{ announcement.id }}"
+          >
+            <i class="fa-solid fa-pen-to-square"></i>
+          </button>
+  
+          <button
+            *ngIf="!favorite"
+            class="btn btn-danger mt-2"
+            (click)="popup(announcement.id)"
+          >
+          <i class="fa-solid fa-trash"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-3 border border-dark border-1">
+    <img  class="mt-5 mx-auto d-block" src="../data/avatar.jpg" alt="Avatar">
+    <div class="mx-auto d-block">
+      {{user.firstName}}
+    </div>
+    <div>
+      Inregistrat din: {{user.registrationDate.toString().replace('-', '/').split('T')[0].replace('-', '/')}}
+    </div>
+    <div (click)="clickEvent()">
+        <icon [icon]="'fa-solid fa-phone'" [text]="numberText" color ="green" textClass = "fw-bolder"></icon>
+    </div>
+  </div>
+  <div class="col-8 border border-dark border-1">
+  <div *ngFor="let item of announcements" class="shadow-lg">
+    <app-announcement-line-card [announcement]="item"></app-announcement-line-card>
+  </div>
+  </div>
+</div>

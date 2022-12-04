@@ -1,0 +1,5 @@
+.link:hover {
+  color : blue;
+  text-decoration-color: blue;
+  text-size-adjust: 2px;
+}

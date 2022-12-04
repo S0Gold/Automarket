@@ -1,0 +1,5 @@
+<div class="row border border-dark border-1 ">
+  <div *ngFor="let item of properties" class="shadow-lg col-sm-4 p-3">
+    <app-announcement-card [announcement]="item" [favorite]="isFavorite(item.id)"></app-announcement-card>
+  </div>
+</div>

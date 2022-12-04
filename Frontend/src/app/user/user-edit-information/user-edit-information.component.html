@@ -1,0 +1,46 @@
+
+  <div class="card-body col-6">
+    <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+      <div class="form-group col-12">
+          <label for="name" class="form-label">Prenume</label>
+          <input type="text" class="form-control" formControlName="firstName" [(ngModel)]="user.firstName">
+          <span *ngIf="!firstName.valid && (firstName.touched || userSubmited)" class="error-block">
+            Te rugăm să completezi acest câmp.
+          </span>
+      </div>
+
+      <div class="form-group col-12">
+        <label for="name" class="form-label">Nume</label>
+        <input type="text" class="form-control" formControlName="lastName" [(ngModel)]="user.lastName" >
+        <span *ngIf="!lastName.valid && (lastName.touched || userSubmited)" class="error-block">
+          Te rugăm să completezi acest câmp.
+        </span>
+    </div>
+
+      <div class="form-group col-12">
+        <label for="email" class="form-label">Adresă de email</label>
+        <input type="text" class="form-control" formControlName="email" [(ngModel)]="user.emailAddress">
+        <span *ngIf="!email.valid && (email.touched || userSubmited)" class="error-block">
+          <span *ngIf="email.hasError('required')" class="error-block">Te rugăm să completezi acest câmp.</span>
+          <span *ngIf="email.hasError('email')" class="error-block">Te rugăm să introduci o adresă de email validă.</span>
+        </span>
+      </div>     
+
+      <div class="form-group col-12">
+        <label for="mobile" class="form-label">Număr de telefon</label>
+        <input type="text" class="form-control" formControlName="mobile" [(ngModel)]="user.phoneNumber">
+        <span *ngIf="!mobile.valid && (mobile.touched || userSubmited)" class="error-block">
+          Te rugăm să completezi acest câmp.
+        </span>
+      </div>
+
+      <div class="form-group col-12 d-flex justify-content-center">
+        <button [disabled]="!editForm.valid"
+          type="submit"
+          class="btn btn-success col-6 m-2">
+          Actualizează informarțiile
+        </button>
+      </div>
+
+    </form>
+  </div>

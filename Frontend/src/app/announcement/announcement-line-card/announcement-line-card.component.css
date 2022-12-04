@@ -1,0 +1,43 @@
+.col-2, .col-10{
+   max-height: 100px !important; 
+}
+.small{
+    height: auto;
+    width: 120px;
+}
+
+.container:hover{
+    transform: scale(1.01,1.01) ;
+    transition-duration: 500ms;
+    transition-timing-function: ease-out;
+    opacity: .8;
+    background-color: rgb(255, 255, 255); 
+}
+
+.container{
+    background-color: rgb(230, 230, 230);
+}
+.card-size{
+    height: 100px;
+}
+
+.favorite{
+    color: red;
+    border-color: blue;
+    border-width: 1px;
+}
+
+.card-text-1{
+    font-weight: bold;
+    font-size: large;
+}
+
+.card-text-2{
+    font-weight: bold;
+    font-size: medium;
+}
+
+.card-text-3{
+    font-weight: bold;
+    font-size: medium;
+}

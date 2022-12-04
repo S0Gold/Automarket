@@ -1,0 +1,39 @@
+.ng-invalid.ng-touched{
+  border-color: red;
+}
+
+.ng-valid.ng-touched{
+  border-color: green;
+  border-width:2px;
+}
+
+.error-block{
+  color:red;
+}
+.btn-group > label[ng-reflect-btn-radio]{
+  border-radius: 44px;
+  padding: 0 15px;
+  line-height: 30px;
+
+}
+
+.card-header > h1, .card-header > h2, .card-header > h3{
+  color: white;
+}
+
+.card-header{
+  height: 42px;
+  padding: 4px 10px !important;
+  background-color: #818281bb !important;
+  font-weight: bold;
+  text-align: center;
+  top: 50%;
+}
+.card-title{
+  color: #83e2c2;
+  border-radius: 10px;
+}
+
+.card, .card-header, .card-body {
+  border-radius: 10px;
+}

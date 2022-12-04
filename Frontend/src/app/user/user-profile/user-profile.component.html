@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row">
+    <div class="col-2 border border-dark">
+        <tabset #formTabs class="member-tabset" [vertical]="true" (tabChange)="changeTab($event)"> 
+            <tab heading="Informații despre cont" (selectTab)="changeTab(1)"></tab>
+            <tab heading="Anunțuri adăugate" (selectTab)="changeTab(2)"></tab>
+            <tab heading="Anunțuri favorite" (selectTab)="changeTab(3)"></tab>
+            <tab heading="Preferințe" (selectTab)="changeTab(4)"></tab>
+            <tab heading="Schimbă parola" (selectTab)="changeTab(5)"></tab>
+            <tab heading="Șterge cont" (selectTab)="changeTab(6)"></tab>
+        </tabset>
+    </div>
+    <div class="col-10 border border-dark">
+      <div class="mt-2" [hidden]="!(tabSelected == 1)">
+        <app-user-edit-information></app-user-edit-information>
+      </div>
+      <div class="m-1" [hidden]="!(tabSelected == 2)"> 
+        <app-announcement-userAdded></app-announcement-userAdded>        
+              
+      </div>
+      <div class="m-1" [hidden]="!(tabSelected == 3)"> 
+        <app-announcement-favorites></app-announcement-favorites>  
+      </div>
+      <div class="m-1" [hidden]="!(tabSelected == 4)"> 
+        <app-user-preferences></app-user-preferences>
+      </div>
+      <div class="mt-2 col-10" [hidden]="!(tabSelected == 5)"> 
+        <app-user-changePassword [header]="false" ></app-user-changePassword>
+      </div>
+      <div class="m-5 " [hidden]="!(tabSelected == 6)"> 
+        <div class="row d-flex justify-content-center">
+          Ștergerea contului va fi permanentă și va duce la eliminarea tuturor anunțurilor listate!
+        </div>
+        <div class=" d-flex justify-content-center mt-3">
+          <button class="btn btn-danger" (click)="popup()">
+            Ștergere cont
+          </button>
+        </div>     
+      </div> 
+    </div> 
+  </div>
+</div>

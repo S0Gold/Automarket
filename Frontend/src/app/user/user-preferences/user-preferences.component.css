@@ -1,0 +1,13 @@
+.item-style{
+    background-color: rgb(188, 233, 167); /* Changing background color */
+    font-weight: bold; /* Making font bold */
+    border-radius: 20px; /* Making border radius */
+    width: auto; /* Making auto-sizable width */
+    height: auto; /* Making auto-sizable height */
+    padding: 5px 10px 5px 10px; /* Making space around letters */
+    font-size: 14px; /* Changing font size */
+}
+
+.item-style:hover{
+    background-color: rgb(231, 85, 17); 
+}
